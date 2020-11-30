@@ -9,8 +9,8 @@ public class Valami2 {
     private final String ertek;
     private Boolean asd;
 
-    public void print(@NonNull String param){
-         @NonNull String valami = null;
+    public void print(@NonNull String param) {
+        @NonNull String valami = null;
         System.out.println(toString() + " " + param);
     }
 }
