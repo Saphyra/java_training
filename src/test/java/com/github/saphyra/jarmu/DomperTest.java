@@ -1,5 +1,7 @@
 package com.github.saphyra.jarmu;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -8,7 +10,17 @@ public class DomperTest {
     private static final int KAPACITAS = 100;
     private static final int SEBESSEG = 90;
 
-    private Domper underTest = new Domper(KAPACITAS, SEBESSEG);
+    private Domper underTest;
+
+    @Before
+    public void setUp() {
+        underTest = new Domper(KAPACITAS, SEBESSEG);
+    }
+
+    @After
+    public void tearDown() {
+        assertThat(underTest.getRakomany()).isEqualTo(0);
+    }
 
     @Test
     public void motorBeindit_shouldSetJarAMotorTrue() {
