@@ -11,6 +11,7 @@ import static com.github.saphyra.util.Constants.*;
 public class MainMenu implements Menu {
     private final ConsoleReader consoleReader;
     private final RegistrationMenu registrationMenu;
+    private final LoginMenu loginMenu;
 
     @Override
     public void enterMenu() {
@@ -32,6 +33,7 @@ public class MainMenu implements Menu {
                     registrationMenu.enterMenu();
                     break;
                 case MAIN_MENU_LOGIN_OPTION:
+                    loginMenu.enterMenu();
                     break;
                 case EXIT_OPTION:
                     break;
