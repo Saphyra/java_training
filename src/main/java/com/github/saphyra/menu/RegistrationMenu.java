@@ -7,6 +7,7 @@ import com.github.saphyra.validation.PasswordValidation;
 import com.github.saphyra.validation.UsernameValidation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,6 +18,9 @@ public class RegistrationMenu implements Menu {
     private final UsernameValidation usernameValidation;
     private final PasswordValidation passwordValidation;
     private final UserRepository userRepository;
+
+    @Value("${registration.startBalance}")
+    private int startBalance;
 
     @Override
     public void enterMenu() {
@@ -32,9 +36,10 @@ public class RegistrationMenu implements Menu {
         User user = User.builder()
                 .username(username)
                 .password(password)
+                .balance(startBalance)
                 .build();
         userRepository.save(user);
 
-        System.out.println("Regustration successful.");
+        System.out.println("Registration successful.");
     }
 }
