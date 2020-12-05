@@ -25,11 +25,10 @@ public class AccountMenu implements Menu {
     @Override
     public void enterMenu() {
         String username = session.getUsername();
-        User user = userRepository.findByUsername(username);
-
         String input;
 
         do {
+            User user = userRepository.findByUsername(username);
             System.out.println();
             System.out.println("Account menu, Hello " + username);
             System.out.println("Commands:");

@@ -2,6 +2,7 @@ package com.github.saphyra.service;
 
 import com.github.saphyra.read.IntegerValidationReader;
 import com.github.saphyra.repository.user.User;
+import com.github.saphyra.repository.user.UserRepository;
 import com.github.saphyra.validation.PositiveNumberValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 public class WithdrawService {
     private final IntegerValidationReader integerValidationReader;
     private final PositiveNumberValidation positiveNumberValidation;
+    private final UserRepository userRepository;
 
     public void withdraw(User user) {
         System.out.println("How much money do you want to deposit? Available balance: " + user.getBalance());
@@ -23,6 +25,7 @@ public class WithdrawService {
         }
 
         user.decreaseBalance(withdrawValue);
+        userRepository.save(user);
         System.out.println("Withdraw successful.");
     }
 }
