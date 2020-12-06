@@ -27,9 +27,10 @@ public class Domper {
     }
 
     public void platoKinyit() {
-        if (sebesseg != 0) {
+        if (sebesseg !=  0) {
             throw new IllegalStateException("A Dömper halad. Sebesség: " + sebesseg);
         }
+
         platoNyitva = true;
     }
 
