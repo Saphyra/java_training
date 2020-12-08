@@ -26,7 +26,7 @@ public class TransferService {
         System.out.println("How much money do you want to transfer? Available balance: " + user.getBalance());
         int transferValue = integerValidationReader.readNumber(positiveNumberValidation);
 
-        if(transferValue == 0){
+        if (transferValue == 0) {
             System.out.println("Transaction cancelled.");
             return;
         }
@@ -39,7 +39,7 @@ public class TransferService {
 
         System.out.println("Who do you want to send money to?");
         String username = validationReader.readInput(userExistsValidator);
-        if(isBlank(username)){
+        if (isBlank(username)) {
             System.out.println("Transaction cancelled.");
             return;
         }
